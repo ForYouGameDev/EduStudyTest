@@ -1,0 +1,4 @@
+import { SiteHeader } from "@/components/site-header";
+export default function AboutPage() {
+  return <main className="min-h-screen bg-white"><SiteHeader /><article className="mx-auto max-w-3xl px-5 py-16"><p className="text-xs font-bold uppercase tracking-widest text-brand">About EduTest AI</p><h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink">A more thoughtful way to prepare.</h1><p className="mt-5 text-sm leading-7 text-muted">EduTest AI brings practice, mock testing and progress review into one focused learning space. Our goal is to help learners make each study session more intentional, with clear feedback and tools that grow with their goals.</p><p className="mt-4 text-sm leading-7 text-muted">Questions created from source documents are designed to retain their source and require human review before they are made available to learners.</p></article></main>;
+}

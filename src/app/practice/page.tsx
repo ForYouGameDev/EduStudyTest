@@ -1,0 +1,14 @@
+import Link from "next/link";
+import { ArrowRight, BookOpenCheck, Clock3, FileQuestion, Layers3, ListChecks, Sparkles } from "lucide-react";
+import { AppSidebar } from "@/components/app-sidebar";
+
+const modes = [
+  { title: "Quick practice", description: "A short, flexible set to reinforce what you know.", icon: Sparkles, tag: "10–15 min" },
+  { title: "Chapter test", description: "Focus on one chapter and build topic confidence.", icon: Layers3, tag: "Focused" },
+  { title: "Subject test", description: "Bring together your learning across a full subject.", icon: BookOpenCheck, tag: "Mixed topics" },
+  { title: "Custom mock test", description: "Choose question count, difficulty and time limit.", icon: ListChecks, tag: "Your settings" }
+];
+
+export default function PracticePage() {
+  return <div className="min-h-screen bg-canvas lg:flex"><AppSidebar /><main className="min-w-0 flex-1 px-5 py-8 sm:px-8 lg:px-10"><div className="mx-auto max-w-5xl"><p className="text-xs font-medium text-muted">PRACTICE & TESTS</p><h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Choose how you want to practice.</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-muted">Build the kind of session that fits your goal today. Questions are drawn from the approved question bank.</p><div className="mt-8 grid gap-4 sm:grid-cols-2">{modes.map(({ title, description, icon: Icon, tag }) => <Link key={title} href="/tests/new" className="group rounded-2xl border border-line bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-soft"><div className="flex items-start justify-between"><span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-pale text-brand"><Icon size={19} /></span><span className="rounded-full bg-canvas px-2.5 py-1 text-[10px] font-medium text-muted">{tag}</span></div><h2 className="mt-5 text-sm font-semibold text-ink">{title}</h2><p className="mt-2 max-w-sm text-xs leading-5 text-muted">{description}</p><span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-brand">Set up practice <ArrowRight size={14} className="transition group-hover:translate-x-1" /></span></Link>)}</div><div className="mt-6 flex gap-3 rounded-2xl border border-line bg-white p-4"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#fff4df] text-gold"><Clock3 size={17} /></span><div><p className="text-xs font-semibold text-ink">Your time, your pace</p><p className="mt-1 text-[11px] leading-5 text-muted">Timed tests save your answers as you go. Untimed practice lets you focus on learning each solution.</p></div></div><p className="mt-5 flex items-center gap-2 text-[11px] text-muted"><FileQuestion size={14} /> Tests require approved questions in the question bank. If a set cannot be completed, we’ll tell you rather than quietly reducing it.</p></div></main></div>;
+}
